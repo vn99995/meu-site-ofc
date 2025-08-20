@@ -1,0 +1,453 @@
+/* RESET & VARIÁVEIS */
+:root {
+  --primary: #bb86fc;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --on-background: #e0e0e0;
+  --on-surface: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+  min-height: 100vh;
+}
+
+/* TEMA CLARO */
+body.light-theme {
+  --primary: #6200ee;
+  --background: #f5f5f5;
+  --surface: #ffffff;
+  --on-background: #333333;
+  --on-surface: #000000;
+}
+
+/* HEADER - AJUSTES ESPECÍFICOS PARA O LOGO */
+header {
+  background-color: var(--surface);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--primary);         /* Cor do texto, pegando da variável global */
+  font-size: 1.5rem;             /* Tamanho da fonte */
+  font-weight: bold;             /* Negrito */
+  white-space: nowrap;           /* Impede quebra de linha */
+  overflow: hidden;              /* Esconde o que ultrapassar a largura */
+  max-width: 180px;              /* Limite da largura onde o texto fica preso */
+  position: relative;            /* Necessário para controlar o texto interno */
+}
+
+.logo span {
+  display: inline-block;         /* Permite aplicar transformações */
+  padding-left: 100%;            /* Começa fora da área visível (à direita) */
+  animation: moveText 8s linear infinite; /* Ativa a animação (8s, linear, repetição infinita) */
+}
+
+/* Animação do texto */
+@keyframes moveText {
+  from {
+    transform: translateX(0);    /* Posição inicial */
+  }
+  to {
+    transform: translateX(-100%); /* Move o texto todo para a esquerda */
+  }
+}
+
+/* CONTAINER PRINCIPAL DO HEADER - Botões alinhados à direita */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ESTILO DO DROPDOWN DE PRODUTOS (Natura/Avon) - AGORA NO HEADER */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  background-color: var(--primary); /* Usa a cor primária do tema */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.dropdown-btn:hover {
+  background-color: #a56ef8; /* Tom mais escuro no hover */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--surface); /* Usa a cor de superfície do tema */
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  overflow: hidden;
+  right: 0;
+  top: 100%;
+}
+
+.dropdown-content a {
+  color: var(--on-surface); /* Usa a cor do texto em superfície */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--primary); /* Cor primária no hover */
+  color: white;
+}
+
+/* Mostrar dropdown quando o botão for hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* BOTÃO DO TEMA (claro/escuro) */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--primary); /* Borda com cor primária */
+  color: var(--on-background); /* Cor do texto conforme tema */
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary); /* Cor primária no hover */
+  color: white;
+}
+
+/* MENU HAMBURGUER (três linhas) */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary); /* Cor primária para as linhas */
+  border-radius: 3px;
+}
+
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* MENU LATERAL */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--surface);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  padding: 80px 20px 20px;
+}
+
+.menu-overlay.active {
+  right: 0;
+}
+
+.menu-overlay ul {
+  list-style: none;
+}
+
+.menu-overlay li {
+  margin-bottom: 1.5rem;
+}
+
+.menu-overlay a {
+  color: var(--on-surface);
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: block;
+}
+
+.menu-overlay a:hover {
+  background-color: rgba(187, 134, 252, 0.1);
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.hero-text p {
+  margin-bottom: 1.5rem;
+  color: var(--on-background);
+}
+
+/* BOTÃO "VER PRODUTOS" NA SEÇÃO HERO (não confundir com o dropdown) */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.hero-image img {
+  max-width: 50%;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* PRODUTOS EM DESTAQUE */
+.featured {
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background-color: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--on-surface);
+}
+
+.product-price {
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--surface);
+  color: var(--on-surface);
+}
+
+/* RESPONSIVO - VERSÃO MELHORADA PARA TODOS CELULARES */
+@media (max-width: 768px) {
+  /* Ajustes no header e logo */
+  header {
+    padding: 0.8rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.3rem; /* Tamanho reduzido */
+    max-width: 150px; /* Largura máxima reduzida */
+  }
+  
+  .header-buttons {
+    gap: 0.8rem;
+  }
+  
+  /* Dropdown de produtos */
+  .dropdown-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Botão de tema */
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .dropdown-content {
+    right: 0;
+    min-width: 180px;
+  }
+  
+  /* Hero section */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero-text {
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+  
+  .btn {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero-image img {
+    max-width: 90%;
+  }
+  
+  /* Produtos */
+  .featured {
+    padding: 2rem 1rem;
+  }
+  
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .product-info {
+    padding: 1rem;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* AJUSTES PARA TELAS MUITO PEQUENAS (ATÉ 360px) */
+@media (max-width: 360px) {
+  .logo {
+    font-size: 1.1rem; /* Tamanho ainda menor para telas tiny */
+    max-width: 120px; /* Largura máxima reduzida */
+  }
+  
+  .header-buttons {
+    gap: 0.6rem;
+  }
+  
+  .theme-toggle {
+    font-size: 1rem;
+  }
+  
+  .products {
+    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

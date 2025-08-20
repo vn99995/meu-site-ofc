@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vânia Cosméticos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- Logo da loja -->
+    <div class="logo">
+      <span>Vânia Cosméticos e Presentes</span>
+    </div>
+
+    <!-- Botões do header (dropdown, tema e menu hamburguer) -->
+    <div class="header-buttons">
+      <!-- Dropdown de produtos (Natura e Avon) - AGORA DENTRO DO HEADER-BUTTONS -->
+      <div class="dropdown">
+        <button class="dropdown-btn" id="dropdownBtn">Produtos ▼</button>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="https://www.natura.com.br/consultoria/josivaniaviana" target="_blank">Ir para site Natura</a>
+          <a href="https://www.avon.com.br" target="_blank">Ir para site Avon</a>
+        </div>
+      </div>
+
+      <!-- Botão para alternar entre tema claro/escuro -->
+      <button class="theme-toggle" id="themeToggle">🌓</button>
+      
+      <!-- Menu hamburguer (três linhas) -->
+      <div class="menu-btn" id="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+   <!-- Menu lateral que aparece ao clicar no menu hambúrguer -->
+<div class="menu-overlay" id="menuOverlay">
+  <ul>
+    <!-- Link para página inicial -->
+    <li><a href="index.html">Home</a></li>
+
+    <!-- Submenu com links externos (Natura e Avon) -->
+    <li class="dropdown">
+      <!-- Item principal do submenu -->
+      <span>Marcas Parceiras ▾</span>
+      <!-- Itens do submenu -->
+      <div class="dropdown-content">
+        <a href="https://www.natura.com.br/consultoria/josivaniaviana" target="_blank">Ir para site Natura</a>
+        <a href="https://www.avon.com.br" target="_blank">Ir para site Avon</a>
+      </div>
+    </li>
+
+    <!-- Link para página de contato -->
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</div>
+</header>
+
+
+
+
+
+
+
+  
+
+  <!-- SEÇÃO PRINCIPAL (HERO) -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Bem-vindo(a)!</h1>
+     <p>
+  ✨ Olá, seja bem-vindo(a) à <strong>Vânia Cosméticos</strong>!  
+  Estamos com uma mega promoção em nosso site.  
+  E tem mais: na sua <strong>primeira compra use o cupom</strong>, use o cupom <strong style="color:#ff6b6b;">VANIA30%</strong> e ganhe <strong>30% de desconto exclusivo</strong>! 💝
+</p>
+
+      <!-- Botão para ver produtos Natura -->
+      <a href="https://www.natura.com.br/consultoria/josivaniaviana" class="btn" target="_blank">Ver Produtos</a>
+    </div>
+    <div class="hero-image">
+      <img src="img/banner.jpg" alt="Produtos da Vânia Cosméticos">
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- SEÇÃO DE PRODUTOS EM DESTAQUE -->
+  <section class="featured">
+    <h2>Produtos em Destaque</h2>
+    <div class="products">
+      <!-- Produto 1 - Kit Maquiagem -->
+      <div class="product-card">
+        <img src="img/make.png" alt="Maquiagem" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Kit Maquiagem Profissional</h3>
+          <p class="product-price">R$ 89,90</p>
+          <!-- Botão de adicionar ao carrinho (mantido mas sem funcionalidade) -->
+          <button class="add-to-cart" data-id="1" data-name="Kit Maquiagem Profissional" data-price="89.90" data-image="img/make.png">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      
+      <!-- Produto 2 - Óleo de cabelo -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1638609269267-f0128098a809?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGNyZW1lJTIwZGUlMjBjYWJlbG98ZW58MHx8MHx8fDA%3D" alt="oleo de cabelo" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">oleo de cabelo</h3>
+          <p class="product-price">R$ 129,90</p>
+          <button class="add-to-cart" data-id="2" data-name="oleo de cabelo" data-price="129.90" data-image="https://images.unsplash.com/photo-1638609269267-f0128098a809?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGNyZW1lJTIwZGUlMjBjYWJlbG98ZW58MHx8MHx8fDA%3D">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      
+      <!-- Produto 3 - Perfume Importado -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1607506740505-f01f00226534?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UGVyZnVtZSUyMEltcG9ydGFkb3xlbnwwfHwwfHx8MA%3D%3D" alt="Perfume" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Perfume Importado</h3>
+          <p class="product-price">R$ 199,90</p>
+          <button class="add-to-cart" data-id="3" data-name="Perfume Importado" data-price="199.90" data-image="https://images.unsplash.com/photo-1607506740505-f01f00226534?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UGVyZnVtZSUyMEltcG9ydGFdob3xlbnwwfHwwfHx8MA%3D%3D">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      
+      <!-- Produto 4 - Kit Beleza Completo -->
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1226952007/pt/foto/beauty-products-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=YOeDYYT7v9qV5YJkqmkwRKe5ZlTu5CwYQTzdFfEtlag=" alt="Kit Beleza" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Kit Beleza Completo</h3>
+          <p class="product-price">R$ 159,90</p>
+          <button class="add-to-cart" data-id="4" data-name="Kit Beleza Completo" data-price="159.90" data-image="https://media.istockphoto.com/id/1226952007/pt/foto/beauty-products-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=YOeDYYT7v9qV5YJkqmkwRKe5ZlTu5CwYQTzdFfEtlag=">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    &copy; 2025 Vânia Cosméticos. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // DROPDOWN DE PRODUTOS - ATIVAÇÃO POR CLIQUE
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownContent = document.getElementById('dropdownContent');
+    
+    dropdownBtn.addEventListener('click', function(e) {
+      e.stopPropagation(); // Impede que o clique se propague
+      dropdownContent.style.display = 
+        dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    // Fechar dropdown ao clicar fora
+    document.addEventListener('click', function() {
+      dropdownContent.style.display = 'none';
+    });
+    
+    // Impedir que cliques dentro do dropdown fechem ele
+    dropdownContent.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // MENU HAMBURGUER - MANTIDO E FUNCIONAL
+    const menuBtn = document.getElementById('menuBtn');
+    const menuOverlay = document.getElementById('menuOverlay');
+    
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+    });
+    
+    // TEMA CLARO/ESCURO - MANTIDO E FUNCIONAL
+    const themeToggle = document.getElementById('themeToggle');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      
+      // Salva preferência
+      localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    });
+    
+    // Verifica tema salvo ao carregar
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
+</body>
+</html>
