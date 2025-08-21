@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ESTILOS ESPECÍFICOS PARA A PÁGINA DE CONTATO */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    main {
+      flex: 1;
+    }
+    
     .contact-section {
       max-width: 600px;
       margin: 3rem auto;
@@ -20,7 +30,7 @@
       color: var(--primary);
     }
 
-    /* Links de contato */
+    /* Links de contato - usando o mesmo estilo dos botões do index */
     .contact-links {
       display: flex;
       flex-direction: column;
@@ -39,28 +49,66 @@
       font-weight: bold;
       text-decoration: none;
       transition: all 0.3s ease;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .contact-link:hover {
+      background-color: #a56ef8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .contact-link i {
       font-size: 1.3rem;
     }
 
-    .contact-email {
-      background: #16213e;
-      color: #fff;
+    /* ESTILOS ESPECÍFICOS PARA O DROPDOWN NO MENU LATERAL */
+    .menu-overlay .dropdown {
+      position: relative;
     }
-    .contact-email:hover {
-      background: #1f2a55;
-      transform: scale(1.03);
+    
+    .menu-overlay .dropdown-btn {
+      background: none;
+      border: none;
+      color: var(--on-surface);
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+    }
+    
+    .menu-overlay .dropdown-content {
+      display: none;
+      padding-left: 1rem;
+    }
+    
+    .menu-overlay .dropdown-content a {
+      padding: 0.5rem;
+      display: block;
+      color: var(--on-surface);
+      text-decoration: none;
+    }
+    
+    .menu-overlay .dropdown-content a:hover {
+      background-color: rgba(187, 134, 252, 0.1);
+    }
+    
+    .menu-overlay .dropdown.active .dropdown-content {
+      display: block;
     }
 
-    .contact-whatsapp {
-      background: #25d366;
-      color: #fff;
-    }
-    .contact-whatsapp:hover {
-      background: #1ebe5d;
-      transform: scale(1.03);
+    /* FOOTER NO FINAL DA PÁGINA */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--surface);
+      color: var(--on-surface);
+      margin-top: auto;
     }
 
     /* Responsivo */
@@ -71,6 +119,10 @@
       .contact-link {
         font-size: 1rem;
         padding: 0.7rem 1rem;
+      }
+      
+      footer {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -109,13 +161,16 @@
     <div class="menu-overlay" id="menuOverlay">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <span>Marcas Parceiras ▾</span>
+        
+        <!-- Dropdown de Marcas Parceiras no menu lateral -->
+        <li class="dropdown" id="menuDropdown">
+          <button class="dropdown-btn">Marcas Parceiras ▾</button>
           <div class="dropdown-content">
             <a href="https://www.natura.com.br/consultoria/josivaniaviana" target="_blank">Ir para site Natura</a>
             <a href="https://www.avon.com.br" target="_blank">Ir para site Avon</a>
           </div>
         </li>
+        
         <li><a href="contato.html">Contato</a></li>
       </ul>
     </div>
@@ -126,22 +181,62 @@
     <h1 class="contact-title">📞 Fale Conosco</h1>
 
     <div class="contact-links">
-      <a href="mailto:contato@vaniacosmeticos.com.br" class="contact-link contact-email">
+      <a href="mailto:contato@vaniacosmeticos.com.br" class="contact-link">
         <i>✉</i> contato@vaniacosmeticos.com.br
       </a>
       
-      <a href="https://wa.me/5573981435901" target="_blank" class="contact-link contact-whatsapp">
+      <a href="https://wa.me/5573981435901" target="_blank" class="contact-link">
         <i>📱</i> (73) 9 8143-5901 (WhatsApp)
       </a>
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER NO FINAL DA PÁGINA -->
   <footer>
     &copy; 2025 Vânia Cosméticos. Todos os direitos reservados.
   </footer>
 
   <script>
+    // DROPDOWN DE PRODUTOS - ATIVAÇÃO POR CLIQUE
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownContent = document.getElementById('dropdownContent');
+    
+    dropdownBtn.addEventListener('click', function(e) {
+      e.stopPropagation(); // Impede que o clique se propague
+      dropdownContent.style.display = 
+        dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    // Fechar dropdown ao clicar fora
+    document.addEventListener('click', function() {
+      dropdownContent.style.display = 'none';
+    });
+    
+    // Impedir que cliques dentro do dropdown fechem ele
+    dropdownContent.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // DROPDOWN NO MENU LATERAL - ATIVAÇÃO POR CLIQUE
+    const menuDropdown = document.getElementById('menuDropdown');
+    const menuDropdownBtn = menuDropdown.querySelector('.dropdown-btn');
+    const menuDropdownContent = menuDropdown.querySelector('.dropdown-content');
+    
+    menuDropdownBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menuDropdown.classList.toggle('active');
+    });
+    
+    // Fechar dropdown do menu ao clicar fora
+    document.addEventListener('click', function() {
+      menuDropdown.classList.remove('active');
+    });
+    
+    // Impedir que cliques dentro do dropdown do menu fechem ele
+    menuDropdown.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
     // MENU HAMBURGUER
     const menuBtn = document.getElementById('menuBtn');
     const menuOverlay = document.getElementById('menuOverlay');
