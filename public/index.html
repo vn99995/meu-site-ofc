@@ -5,6 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vânia Cosméticos</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ESTILOS PARA OS BOTÕES DE CONTATO NO INDEX */
+    .contact-section-index {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    
+    .contact-title-index {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .contact-links-index {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-link-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+    }
+    
+    .contact-link-index:hover {
+      background-color: #a56ef8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .contact-link-index i {
+      font-size: 1.3rem;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-links-index {
+        gap: 0.8rem;
+      }
+      
+      .contact-link-index {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -79,98 +138,19 @@
     </div>
   </section>
 
-  <!-- SEÇÃO DE PRODUTOS EM PROMOÇÃO -->
-  <section class="featured">
-    <h2>Produtos em Promoção</h2>
-    <div class="products">
-      <!-- Produto 1 - Kit Maquiagem -->
-      <div class="product-card">
-        <img src="img/make.png" alt="Maquiagem" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Kit Maquiagem Profissional</h3>
-          <p class="product-price">R$ 89,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
+  <!-- SEÇÃO DE CONTATO ADICIONADA AO INDEX -->
+  <section class="contact-section-index">
+    <h2 class="contact-title-index">📞 Entre em Contato</h2>
+    
+    <div class="contact-links-index">
+      <a href="mailto:contato@vaniacosmeticos.com.br" class="contact-link-index">
+        <i>✉</i> contato@vaniacosmeticos.com.br
+      </a>
       
-      <!-- Produto 2 - Óleo de cabelo -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1638609269267-f0128098a809?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGNyZW1lJTIwZGUlMjBjYWJlbG98ZW58MHx8MHx8fDA%3D" alt="Óleo de cabelo" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Óleo de Cabelo</h3>
-          <p class="product-price">R$ 129,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-      
-      <!-- Produto 3 - Perfume Importado -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1607506740505-f01f00226534?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UGVyZnVtZSUyMEltcG9ydGFkb3xlbnwwfHwwfHx8MA%3D%3D" alt="Perfume Importado" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Perfume Importado</h3>
-          <p class="product-price">R$ 199,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-      
-      <!-- Produto 4 - Kit Beleza Completo -->
-      <div class="product-card">
-        <img src="https://media.istockphoto.com/id/1226952007/pt/foto/beauty-products-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=YOeDYYT7v9qV5YJkqmkwRKe5ZlTu5CwYQTzdFfEtlag=" alt="Kit Beleza Completo" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Kit Beleza Completo</h3>
-          <p class="product-price">R$ 159,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-      
-      <!-- Produto 5 - Creme Facial -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3JlbWUlMjBmYWNpYWx8ZW58MHx8MHx8fDA%3D" alt="Creme Facial" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Creme Facial Hidratante</h3>
-          <p class="product-price">R$ 79,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-      
-      <!-- Produto 6 - Máscara Capilar -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFzY2FyYSUyMGNhcGlsYXJ8ZW58MHx8MHx8fDA%3D" alt="Máscara Capilar" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Máscara Capilar Reconstrutora</h3>
-          <p class="product-price">R$ 69,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-      
-      <!-- Produto 7 - Protetor Solar -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1550246140-5119ae4790b8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvdGV0b3IlMjBzb2xhcnxlbnwwfHwwfHx8MA%3D%3D" alt="Protetor Solar" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Protetor Solar FPS 60</h3>
-          <p class="product-price">R$ 59,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-      
-      <!-- Produto 8 - Esmalte -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmFpbCUyIHBvbGlzaHxlbnwwfHwwfHx8MA%3D%3D" alt="Esmalte" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Kit Esmaltes Coloridos</h3>
-          <p class="product-price">R$ 49,90</p>
-          <a href="https://www.natura.com.br/p/presente-natura-luna-divina/NATBRA-212921?position=1&listTitle=tab+showcase+-+exalte+sua+liberdade+e+confiança+com+Luna+Divina&consultoria=josivaniaviana" 
-             target="_blank" class="buy-btn">Comprar Agora</a>
-        </div>
-      </div>
-
+      <a href="https://wa.me/5573981435901" target="_blank" class="contact-link-index">
+        <i>📱</i> (73) 9 8143-5901 (WhatsApp)
+      </a>
+    </div>
   </section>
 
   <!-- RODAPÉ -->
